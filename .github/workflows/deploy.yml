@@ -4,15 +4,15 @@ on:
     branches:
     - master
     - dev
-env: 
+env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
     env:
-       MONGODB_CLUSTER_ADDRESS: cluster0.ggvyl.mongodb.net
-       MONGODB_USERNAME: gitaction  
-       MONGODB_PASSWORD: githubaction
-       PORT: 3008
+      MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      PORT: 3008
     environment: testing
     runs-on: ubuntu-latest
     steps:
